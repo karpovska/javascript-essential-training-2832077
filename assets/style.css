@@ -146,3 +146,18 @@ figure {
   background: black;
   color: white;
 }
+
+.main-navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 3rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  background-color: #f3f3f3;
+}
+
+.main-navigation ul a {
+  display: block;
+  color: #666;
+  padding: 0.5rem 1rem;
+}
