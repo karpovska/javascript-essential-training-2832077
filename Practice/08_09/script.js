@@ -67,14 +67,14 @@ const addFigure = (dataObj) => {
   newImg.setAttribute("alt", dataObj.name);
   let newFigCaption = document.createElement("figcaption");
   newFigCaption.innerText = dataObj.description;
-  newFigure.prepend(newImg, newFigCaption);
+  newFigure.append(newImg, newFigCaption);
   return newFigure;
 };
 
 const createArticle = (frogpack) => {
   let newArticle = document.createElement("article");
   newArticle.innerHTML = content;
-  newArticle.append(addFigure(frogpack));
+  newArticle.prepend(addFigure(frogpack));
   return newArticle;
 };
 
