@@ -8,40 +8,82 @@
 
 import backpackObjectArray from "./components/data.js";
 
+const content = backpackObjectArray.map((backpack) => {
+  const newArticle = document.createElement("article");
+  newArticle.classList.add("backpack");
+  newArticle.setAttribute("id", backpack.id);
+
+  newArticle.innerHTML = `
+    <figure class="backpack__image">
+      <img src=${backpack.image} alt="" />
+    </figure>
+    <h1 class="backpack__name">${backpack.name}</h1>
+    <ul class="backpack__features">
+      <li class="packprop backpack__volume">Volume:<span> ${
+        backpack.volume
+      }l</span></li>
+      <li class="packprop backpack__color">Color:<span> ${
+        backpack.color
+      }</span></li>
+      <li class="backpack__age">Age:<span> ${backpack.backpackAge()} days old</span></li>
+      <li class="packprop backpack__pockets">Number of pockets:<span> ${
+        backpack.pocketNum
+      }</span></li>
+      <li class="packprop backpack__strap">Left strap length:<span> ${
+        backpack.strapLength.left
+      } inches</span></li>
+      <li class="packprop backpack__strap">Right strap length:<span> ${
+        backpack.strapLength.right
+      } inches</span></li>
+      <li class="feature backpack__lid">Lid status:<span> ${
+        backpack.lidOpen ? "open" : "closed"
+      }</span></li>
+    </ul>
+
+  `;
+  return newArticle;
+});
+
 const main = document.querySelector(".maincontent");
+
+content.forEach((backpack) => {
+  main.append(backpack);
+});
+
+/* const main = document.querySelector(".maincontent");
 
 console.log(backpackObjectArray);
 
 for (const backpack in backpackObjectArray) {
-  const newBackpack = backpackObjectArray[backpack];
+  const backpack = backpackObjectArray[backpack];
   const newArticle = document.createElement("article");
   newArticle.classList.add("backpack");
-  newArticle.setAttribute("id", newBackpack.id);
+  newArticle.setAttribute("id", backpack.id);
 
   const content = `
     <figure class="backpack__image">
-      <img src=${newBackpack.image} alt="" />
+      <img src=${backpack.image} alt="" />
     </figure>
-    <h1 class="backpack__name">${newBackpack.name}</h1>
+    <h1 class="backpack__name">${backpack.name}</h1>
     <ul class="backpack__features">
       <li class="packprop backpack__volume">Volume:<span> ${
-        newBackpack.volume
+        backpack.volume
       }l</span></li>
       <li class="packprop backpack__color">Color:<span> ${
-        newBackpack.color
+        backpack.color
       }</span></li>
-      <li class="backpack__age">Age:<span> ${newBackpack.backpackAge()} days old</span></li>
+      <li class="backpack__age">Age:<span> ${backpack.backpackAge()} days old</span></li>
       <li class="packprop backpack__pockets">Number of pockets:<span> ${
-        newBackpack.pocketNum
+        backpack.pocketNum
       }</span></li>
       <li class="packprop backpack__strap">Left strap length:<span> ${
-        newBackpack.strapLength.left
+        backpack.strapLength.left
       } inches</span></li>
       <li class="packprop backpack__strap">Right strap length:<span> ${
-        newBackpack.strapLength.right
+        backpack.strapLength.right
       } inches</span></li>
       <li class="feature backpack__lid">Lid status:<span> ${
-        newBackpack.lidOpen ? "open" : "closed"
+        backpack.lidOpen ? "open" : "closed"
       }</span></li>
     </ul>
   
@@ -49,4 +91,4 @@ for (const backpack in backpackObjectArray) {
 
   newArticle.innerHTML = content;
   main.append(newArticle);
-}
+    }*/
