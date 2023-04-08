@@ -91,4 +91,4 @@ for (const backpack in backpackObjectArray) {
 
   newArticle.innerHTML = content;
   main.append(newArticle);
-    }*/
+}*/
